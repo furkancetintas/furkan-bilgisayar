@@ -1,0 +1,50 @@
+<div class="container mt-3">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6 mt-5">
+      <div class="card justify-content-center shadow mt-5">
+        <div class="card-header">
+          <h5 class="mt-2">Hesabına Giriş Yap</h5>
+        </div>
+        <div class="card-body">
+          <form #frm="ngForm">
+
+            <div class="control-group">
+              <!-- E-mail -->
+              <label class="control-label" for="email">E-mail</label>
+              <div class="controls">
+                <input type="email" #mail id="email" placeholder="" class="form-control" required>
+                <!-- <div class="alert alert-danger mt-1">
+                                      E-Mail alanı zorunludur!!
+                                  </div> -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <!-- Password-->
+              <label>Şifre</label>
+              <div class="controls">
+                <input name="password" type="password" #parola id="password" placeholder="" class="form-control"
+                  required minlength="6">
+                <!-- <div class="alert alert-danger mt-1">
+                                      Şifre alanı zorunludur ve en az 6 haneli olmalı!!
+                                  </div> -->
+              </div>
+            </div>
+            <a href="index.html" class="btn text-primary mt-2 mb-2">Geri Dön</a>
+
+            <button class="btn btn-primary float-right mb-2" (click)="GirisYap(mail.value, parola.value)"
+              (click)="Giris()">Giriş Yap</button>
+          </form>
+          <div [ngClass]="uyesonuc.islem ?'alert alert-success':'alert alert-danger'" *ngIf="uyesonuc.mesaj?.length>0">
+            {{uyesonuc.mesaj}}
+          </div>
+        </div>
+        <div class="card-footer text-right">Furkan Yazılım.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center justify-content-center align-items-center">
+    <p class="mt-4"><b>Hesabın</b> yok mu?</p>
+    <button routerLink="/kaydol" class="btn btn-outline-dark btn-center">Kaydol</button>
+  </div>
+</div>

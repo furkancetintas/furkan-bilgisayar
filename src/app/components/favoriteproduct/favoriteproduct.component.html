@@ -1,0 +1,26 @@
+<form #frm="ngForm">
+    <div class="container mt-5 pt-1">
+        <h4 class="mt-4">Favori Ürünlerim</h4>
+        <hr>
+        <div class="row mt-3 mb-5">
+            <div class="col col-12 col-sm-6 col-lg-3 mb-2" *ngFor="let urun of urunler;">
+                <div class="card">
+                    <img [src]="urun.urunFotoUrl" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{urun.urunAd}}</h5>
+                        <p class="card-text">{{urun.urunBilgi}}</p>
+                        <h5 class="text-primary" style="font-family: 'Montserrat', sans-serif;"><b>{{urun.urunFiyat}}
+                                <span style="font-size: medium;">TL</span></b>
+                        </h5>
+                        <div class="button-group">
+                            <button class="btn btn-outline-secondary btn-sm float-left mt-1"
+                                [routerLink]="['/urun-detay',urun.urunID]">Ürün Detay</button>
+                            <button class="btn btn-sm btn-danger float-right mt-1" (click)="btnSil(urun)">Favoriden
+                                Çıkar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

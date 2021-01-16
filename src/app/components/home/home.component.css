@@ -1,0 +1,5 @@
+
+.card:hover>img{
+    transition: all 0.8s;
+    padding: 15px;
+}

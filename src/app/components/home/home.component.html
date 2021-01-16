@@ -1,0 +1,56 @@
+<form #frm="ngForm">
+  <div class="container mt-4 pt-1">
+    <div class="row mt-5">
+      <div class="float-left col-md-10">
+        <select name="filtre" class="form-control mt-1" (click)="urunKayitListeleFiltre()" [(ngModel)]="filtre" id="">
+          <option value="Masaüstü">Masaüstü Bilgisayar</option>
+          <option value="Dizüstü">Dizüstü Bilgisayar</option>
+          <option value="">Tüm Bilgisayarlar</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary float-left ml-3 mt-1" type="submit" (click)="urunKayitListele()">Tüm
+          Bilgisayarlar</button>
+      </div>
+    </div>
+    <div class="row mt-2 mb-5">
+      <div class="col col-12 col-md-6 col-lg-3 mb-2" *ngFor="let urun of urunler;">
+        <div class="card mt-2">
+          <div class="button-group"><button class="btn btn-danger float-right mb-1" title="Favorime Ekle" (click)="
+            this.urunID =urun.key;
+            this.urunFotoUrl=urun.url;
+              this.urunAd=urun.urunAd;
+              this.urunBilgi=urun.urunBilgi;
+              this.urunKategori=urun.urunKategori;
+              this.urunFiyat=urun.urunFiyat;
+              this.kayTarih=urun.kayTarih;
+              FavoriyeEkle();
+              " (click)="ToastFavori()"><i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <img [src]="urun.url" [routerLink]=" ['/urun-detay',urun.key]" style="cursor: pointer;" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{urun.urunAd}}</h5>
+            <p class="card-text">{{urun.urunBilgi}}</p>
+            <h5 class="text-primary" style="font-family: 'Montserrat', sans-serif;"><b>{{urun.urunFiyat}} <span
+                  style="font-size: medium;">TL</span></b>
+            </h5>
+            <button class="btn btn-outline-secondary btn-sm float-left mt-1"
+              [routerLink]="['/urun-detay',urun.key]">Ürün Detay</button>
+            <button class="btn btn-primary float-right" (click)="
+              this.urunID=urun.key;
+              this.urunFotoUrl=urun.url;
+              this.urunAd=urun.urunAd;
+              this.urunBilgi=urun.urunBilgi;
+              this.urunKategori=urun.urunKategori;
+              this.urunFiyat=urun.urunFiyat;
+              this.kayTarih=urun.kayTarih;
+              SepeteEkle(); 
+              " (click)="ToastSepet()">Sepete
+              Ekle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+<div class="container mt-1">
+  <div class="row mt-2">
+    <div class="col col-md-12 mt-5 mb-1">
+      <h4 class="mt-5 ">Sepetim</h4>
+      <button class="btn btn-outline-success btn mb-2 float-right">Siparişi Tamamla</button>
+      <div class="float-right mt-2 pr-3" style="font-family: Montserrat;" *ngIf="toplam>0'hidden'"><span><b>Toplam
+            Fiyat: </b></span>
+        {{toplam +",00"}} <span>TL</span></div>
+      <table class="table">
+        <thead>
+          <td><b>Ürün Görseli</b></td>
+          <td><b>Ürün Adı</b></td>
+          <td><b>Ürün Bilgisi</b></td>
+          <td><b>Ürün Fiyatı</b></td>
+          <td><b>Sil</b></td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let urun of urunler">
+            {{this.sepetToplam(urun.urunFiyat)}}
+            <td><img [src]="urun.urunFotoUrl" [routerLink]="['/urun-detay',urun.urunID]"
+                style="width: 100px; height: 100px; cursor: pointer;"></td>
+            <td>{{urun.urunAd}}</td>
+            <td>{{urun.urunBilgi}}</td>
+            <td>{{urun.urunFiyat}} <span>TL</span>
+            </td>
+            <td><button class="btn btn-outline-danger btn-sm mt-2" (click)="btnSil(urun); this.toplam=0;">Sil</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

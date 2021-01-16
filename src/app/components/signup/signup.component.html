@@ -1,0 +1,52 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6 mt-4 mb-2">
+      <div class="card justify-content-center shadow">
+        <div class="card-header">
+          <h5 class="mt-2">Yeni Bir Hesap Oluştur</h5>
+        </div>
+        <div class="card-body">
+          <form #frm="ngForm" (ngSubmit)="Kaydol()">
+
+            <div class="form-group">
+              <!-- Name -->
+              <label>Ad Soyad</label>
+              <input type="text" name="adsoyad" class="form-control" [(ngModel)]="secUye.adsoyad" required>
+
+              <!-- <div class="alert alert-danger mt-1">İsim Soyisim Zorunlu</div> -->
+            </div>
+            <div class="form-group">
+              <!-- E-Mail -->
+              <label>E-mail</label>
+              <input type="email" #mail name="email" id="email" placeholder="" class="form-control"
+                [(ngModel)]="secUye.email" required>
+              <!-- <div class="alert alert-danger mt-1">E-Mail alanı zorunludur!!</div> -->
+            </div>
+            <div class="form-group">
+              <!-- Şifre -->
+              <label>Şifre</label>
+              <input name="sifre" #parola type="password" id="password" placeholder="" class="form-control"
+                [(ngModel)]="secUye.sifre" required minlength="6">
+              <!-- <div class="alert alert-danger mt-1">Şifre alanı zorunludur ve en az 6 haneli olmalı!!</div> -->
+            </div>
+            <div class="form-group">
+              <!-- Adres -->
+              <label for="address">Adres</label>
+              <input type="text" name="adres" #adres id="address" placeholder="" class="form-control"
+                [(ngModel)]="secUye.adres" required>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Kaydol" class="btn btn-outline-primary float-right mt-2 mb-2"
+                [disabled]="frm.invalid" (click)="Kaydol()">
+            </div>
+            <a href="index.html" class="btn text-primary mt-2 mb-2">Geri Dön</a>
+          </form>
+          <div [ngClass]="sonuc ?'alert alert-success':'alert alert-danger'" *ngIf="islem?.length>0">
+            {{islem}}</div>
+
+        </div>
+        <div class="card-footer text-right">Furkan Yazılım.</div>
+      </div>
+    </div>
+  </div>
+</div>

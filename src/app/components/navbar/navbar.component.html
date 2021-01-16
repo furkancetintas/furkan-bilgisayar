@@ -1,0 +1,52 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">Furkan Bilgisayar</a>
+      <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" [class.show]=" isOpen" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mt-1 mb-2 mb-lg-0">
+          <li class="nav-item pr-2">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><i
+                class="fas fa-home"></i> Ana
+              sayfa</a>
+          </li>
+          <li class="nav-item pr-2">
+            <a class="nav-link" routerLink="/sepet" routerLinkActive="active"><i class="fas fa-shopping-cart"></i>
+              Sepet</a>
+          </li>
+          <li class="nav-item mr-5 pr-2">
+            <a class="nav-link" routerLink="/favori-urunlerim" routerLinkActive="active"><i class="fas fa-heart">
+              </i> Favori Ürünlerim</a>
+          </li>
+          <li class="nav-item">
+            <button href="" class="btn btn-outline-primary btn-sm mr-2 mb-1" routerLink="/kaydol"
+              routerLinkActive="active" *ngIf="fbServis.OturumKontrol()">Kaydol</button>
+          </li>
+          <li class="nav-item">
+            <button href="" class="btn btn-outline-success btn-sm" routerLink="/giris" routerLinkActive="active"
+              *ngIf="fbServis.OturumKontrol()">Giriş
+              Yap</button>
+          </li>
+          <li class="nav-item">
+            <label class="mt-1 mr-3" *ngIf="fbServis.OturumKontrolCikis()">Merhaba,
+              <b>{{secUye.adsoyad}}</b></label>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-sm btn-outline-dark mr-2" routerLink="/admin" routerLinkActive="active"
+              *ngIf="adminKontrol()'hidden'"><i class="fas fa-user-cog"></i>
+              Admin</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-danger btn-sm " routerLinkActive="active" (click)="OturumKapat()"
+              *ngIf="fbServis.OturumKontrolCikis()">Çıkış
+              Yap</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

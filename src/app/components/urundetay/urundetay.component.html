@@ -1,0 +1,55 @@
+<div class="container mt-5 pt-1" style="font-family: 'Montserrat', sans-serif;">
+    <div class="row mt-4 mb-5">
+        <div class="container col col-12 col-md-6 col-lg-6 mb-2 mt-4 
+            float-left border border-left-0 border-bottom-0 border-right-0">
+            <img [src]="secKayit.url" class="card-img-top pl-4" style="width: auto; height: 400px;">
+        </div>
+        <div class="container col col-12 col-md-6 col-lg-6 mt-4 border border-left-0 border-bottom-0 border-right-0 border-primary"
+            style="background-color:rgb(247, 247, 247);">
+            <div class="float-right p-4 mt-2">
+                <button class="btn btn-sm btn-outline-danger float-right" title="Favorime Ekle" (click)="
+                this.urunID =secKayit.key;
+                this.urunFotoUrl=secKayit.url;
+                  this.urunAd=secKayit.urunAd;
+                  this.urunBilgi=secKayit.urunBilgi;
+                  this.urunKategori=secKayit.urunKategori;
+                  this.urunFiyat=secKayit.urunFiyat;
+                  this.kayTarih=secKayit.kayTarih;
+                  FavoriyeEkle();
+                  "><i class="fas fa-heart"></i>
+                </button>
+                <h4><b>{{secKayit.urunAd}}</b></h4>
+                <hr>
+                <p>{{secKayit.urunBilgi}}</p>
+                <h1 class="text-primary float-left mt-3">
+                    <b>{{secKayit.urunFiyat}}</b>
+                    <span style="font-size: large; font-weight: bold;"> TL</span>
+                </h1>
+                <button class="btn btn-lg btn-outline-success pl-5 pr-5 mt-3 float-right" (click)="
+                this.urunID=secKayit.key;
+                this.urunFotoUrl=secKayit.url;
+                this.urunAd=secKayit.urunAd;
+                this.urunBilgi=secKayit.urunBilgi;
+                this.urunKategori=secKayit.urunKategori;
+                this.urunFiyat=secKayit.urunFiyat;
+                this.kayTarih=secKayit.kayTarih;
+              SepeteEkle();
+              " (click)="ToastSepet()"><i class="fas fa-shopping-cart"></i> Sepete
+                    Ekle
+                </button>
+            </div>
+            <div class="pl-4"><b>Tüm Özellikler</b></div>
+            <div class="p-4">
+                <span class="pr-5 mb-5">
+                    Ram (Sistem Belleği):<b> {{secKayit.urunRam}}</b>
+                </span>
+                <span>
+                    İşlemci Hızı: <b>{{secKayit.urunIslemciHizi}}</b></span> <br>
+                <span class="pr-5">
+                    Disk Kapasitesi: <b>{{secKayit.urunDiskKapasitesi}}</b></span>
+                <span>
+                    Ekran Kartı Hafızası: <b>{{secKayit.urunEkranKartiHafizasi}}</b></span><br>
+            </div>
+        </div>
+    </div>
+</div>
