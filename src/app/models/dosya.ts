@@ -13,5 +13,5 @@ export class Dosya {
     urunDiskKapasitesi: string;
     urunEkranKartiHafizasi: string;
     kayTarih: string;
-    duzTarih: string;
+    duzTarih: string; 
 }
