@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
   adsoyad: string;
   secUye: Uye = new Uye();
   isOpen: boolean = false;
+  
+  public totalItem : number = 0;
 
   constructor(
     public fbServis: FbservisService,
@@ -30,6 +32,10 @@ export class NavbarComponent implements OnInit {
     this.secUye.adsoyad = user.displayName;
     this.uid = user.uid;
     this.admin = user.uid;
+    
+    this.urunsepetServis.urunKayitListele().snapshotChanges().pipe().subscribe(res => {
+      this.totalItem = res.length -2;
+    })
   }
 
   toggleNavbar() {
